@@ -38,4 +38,4 @@ jobs:
       with:
         file: ./Dockerfile_with_maven_build
         push: true
-        tags: ${{ secrets.DOCKERHUB_USERNAME }}/dostavljalec:${{ steps.current-time.outputs.formattedTime }}
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/primerjava:${{ steps.current-time.outputs.formattedTime }}
