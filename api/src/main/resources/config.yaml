@@ -8,8 +8,8 @@ kumuluzee:
     http:
       port: 8080
   datasources:
-    - jndi-name: jdbc/db-primerjava
-      connection-url: jdbc:postgresql://db-primerjava:5432/primerjava
-      username: dbuser
-      password: postgres
+    - jndi-name: jdbc/Baza
+      connection-url: jdbc:postgresql://BAZA:5432/tabela1
+      username: user
+      password: password
       max-pool-size: 20

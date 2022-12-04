@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.1">
-    <persistence-unit name="dostavljalec-jpa" transaction-type="JTA">
-        <jta-data-source>jdbc/dostavljalecDS</jta-data-source>
+    <persistence-unit name="tabela1-jpa" transaction-type="JTA">
+        <jta-data-source>jdbc/Baza</jta-data-source>
 
-        <class>si.fri.rso.dostavljalec.models.entities.DeliveryPersonEntity</class>
-        <class>si.fri.rso.dostavljalec.models.converters.InstantAttributeConverter</class>
+        <class>si.fri.rso.product.models.entities.ProductEntity</class>
+        <class>si.fri.rso.product.models.converters.InstantAttributeConverter</class>
 
         <properties>
             <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
