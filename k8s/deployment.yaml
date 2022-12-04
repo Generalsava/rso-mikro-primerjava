@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dostavljalec-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dostavljalec
+  template:
+    metadata:
+      labels:
+        app: dostavljalec
+    spec:
+      containers:
+        - image: tomssojer/dostavljalec:2022-12-02-21-43-12
+          name: dostavljalec
+          env:
+            - name: KUMULUZEE_DATASOURCES0_CONNECTIONURL
+              value: jdbc:postgresql://ella.db.elephantsql.com:5432/shtirzyk
+            - name: KUMULUZEE_DATASOURCES0_USERNAME
+              value: shtirzyk
+            - name: KUMULUZEE_DATASOURCES0_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: db-password
+                  key: KUMULUZEE_DATASOURCES0_PASSWORD
+          ports:
+            - containerPort: 8080
+              name: server
+              protocol: TCP
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: dostavljalec
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 8080
+      protocol: TCP
+      targetPort: server
+  selector:
+    app: dostavljalec

@@ -1,0 +1,1 @@
+INSERT INTO products (ProductName, Type, availabilityOnline, NameBrand, Price) VALUES ('Hlebec', 'Zivila', false, true, 2.0);
